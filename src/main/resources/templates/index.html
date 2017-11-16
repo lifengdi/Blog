@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"/>
-<title>Insert title here</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" media="screen and (min-width: 600px)" th:href="@{/css/base.css}" />
+<link rel="stylesheet" type="text/css" media="screen and (min-width: 400px) and (max-device-width: 600px)" th:href="@{/css/mobile/base.css}" />
+<title>首页-李锋镝个人博客</title>
 </head>
 <body>
-Hello World.
+<div th:include="header :: header"></div>
+	Hello World.
+	<br /> Hello
+	<span th:if='${city}!=null'> <span th:text='${city.name}'>name</span>
+	</span>
 </body>
 </html>

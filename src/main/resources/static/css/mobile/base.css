@@ -1,0 +1,25 @@
+@charset "UTF-8";
+* {
+	margin: 0px;
+	padding: 0px;
+	font-family: SimSun, Microsoft YaHei, Times New Roman;
+	font-size: 16px;
+}
+body {
+	background: #E6E6E6;
+	font-size: 2em;
+}
+
+span{
+	word-wrap: break-word;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}

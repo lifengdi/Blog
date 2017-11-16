@@ -1,6 +1,7 @@
 package com.lifengdi.blog.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +29,8 @@ public class TestController {
 	}
 	
 	@RequestMapping("/index")
-	String index() {
+	String index(HttpServletRequest request) {
+		System.out.println(request.getHeader("User-Agent"));
 		System.out.println("11111");
 		return "index";
 	}
@@ -41,14 +43,11 @@ public class TestController {
 	
 	@RequestMapping("/findCity")  
 	ModelAndView findCity2(@RequestParam int id){  
-		System.out.println("33333");
+		System.out.println("33333444");
 		City selectCityById = cityMapper.selectCityById(id);
-		if (selectCityById != null) {
-			System.out.println(selectCityById.getName());
-		} else {
-			System.out.println("selectCityById");
-		}
-        return new ModelAndView("/index");  
+		ModelAndView modelAndView = new ModelAndView("/index");
+		modelAndView.addObject("city", selectCityById);
+        return modelAndView;  
     }
 }
 

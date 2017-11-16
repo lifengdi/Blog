@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8" />
+<header th:fragment="header">
+	<link rel="stylesheet" type="text/css"
+		media="screen and (min-width: 600px)" th:href="@{/css/header.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/responsive-nav.css}" />
+		
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div class="navbar-brand">
+					<p onclick="window.location.href='#'">李锋镝的个人博客</p>
+				</div>
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar-gbtag"
+					aria-expanded="false">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-gbtag">
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#" class="btn">首页</a></li>
+					<li><a href="#" class="btn">文章档案</a></li>
+					<li><a href="#" class="btn">在线工具</a></li>
+					<li><a href="#" class="btn">技术站点</a></li>
+					<li><a href="#" class="btn">关于我</a></li>
+					<li><a href="#" class="btn">公告</a></li>
+					<li><a href="#" class="btn">留言板</a></li>
+				</ul>
+				<!--导航元素2 -->
+			</div>
+			<!--导航布局-->
+		</div>
+		<!--end 全屏布局-->
+	</div>
+</header>
+</html>
