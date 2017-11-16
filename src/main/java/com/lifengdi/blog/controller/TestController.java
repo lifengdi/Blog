@@ -40,8 +40,15 @@ public class TestController {
 	}
 	
 	@RequestMapping("/findCity")  
-    City findCity2(@RequestParam int id){  
-        return cityMapper.selectCityById(id);  
+	ModelAndView findCity2(@RequestParam int id){  
+		System.out.println("33333");
+		City selectCityById = cityMapper.selectCityById(id);
+		if (selectCityById != null) {
+			System.out.println(selectCityById.getName());
+		} else {
+			System.out.println("selectCityById");
+		}
+        return new ModelAndView("/index");  
     }
 }
 
