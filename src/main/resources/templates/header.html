@@ -8,18 +8,25 @@
 
 	<script type="text/javascript" th:src="@{/js/responsive-nav.min.js}"></script>
 
-	<div id="nav">
-		<ul>
-			<li><a href="#">Home</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Projects</a></li>
-			<li><a href="#">Contact</a></li>
-			<li><a href="#">Contact</a></li>
-			<li><a href="#">Contact</a></li>
-			<li><a href="#">Contact</a></li>
-		</ul>
+	<div id="header">
+		<div class="nav-brand">
+			<a tx:href="@{/index.html}'">
+				博客系统
+			</a>
+		</div>
+		<div id="nav">
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Projects</a></li>
+				<li><a href="#">Contact</a></li>
+				<li><a href="#">Contact</a></li>
+				<li><a href="#">Contact</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</div>
+		<button id="nav-toggle">Menu</button>
 	</div>
-	<button id="nav-toggle">Menu</button>
 	<script type="text/javascript">
 		var navigation = responsiveNav("#nav", {
 	        customToggle: "#nav-toggle"
