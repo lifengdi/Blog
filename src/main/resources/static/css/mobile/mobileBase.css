@@ -7,7 +7,10 @@
 }
 body {
 	background: #E6E6E6;
-	font-size: 2em;
+	margin-top: 60px;
+}
+.main {
+	margin: 0 0.5em;
 }
 
 span{

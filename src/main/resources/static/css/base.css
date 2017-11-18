@@ -7,6 +7,10 @@
 }
 body {
 	background: #E6E6E6;
+	margin-top: 60px;
+}
+.main {
+	margin: 0 4em;
 }
 
 span{

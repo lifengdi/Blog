@@ -1,0 +1,26 @@
+@charset "UTF-8";
+#header {
+	_background: #3d658d;
+	background: #3d658d;
+	position: fixed;
+	top: 0;
+	z-index: 999;
+	line-height: 60px;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	font: normal 100%/1.4 sans-serif;
+	float: left;
+	width: 100%;
+	font-family: SimSun, Microsoft YaHei, Times New Roman;
+}
+.nav-brand {
+	float: left;
+	line-height: 60px;
+	color: #FFF;
+	margin: 0 0.5em;
+}
+.nav-brand a{
+	color: #FFF;
+	font-weight: bold;
+}

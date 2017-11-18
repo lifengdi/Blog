@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="header">
+
 <meta charset="UTF-8" />
-<header th:fragment="header">
-	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<link rel="stylesheet" type="text/css" media="screen and (min-width: 600px)" th:href="@{/css/header.css}" />
-	<link rel="stylesheet" type="text/css" th:href="@{/css/responsive-nav.css}" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 
-	<script type="text/javascript" th:src="@{/js/responsive-nav.min.js}"></script>
-
+<link rel="stylesheet" type="text/css" media="screen and (min-device-width: 750px)" th:href="@{/css/header.css}" />
+<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 750px)" th:href="@{/css/mobile/mobileHeader.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/responsive-nav.css}" />
+<script type="text/javascript" th:src="@{/js/responsive-nav.min.js}"></script>
+<header>
 	<div id="header">
 		<div class="nav-brand">
-			<a tx:href="@{/index.html}'">
-				博客系统
-			</a>
+			<a href="/index.html"> 博客系统 </a>
 		</div>
 		<div id="nav">
 			<ul>
@@ -29,8 +28,8 @@
 	</div>
 	<script type="text/javascript">
 		var navigation = responsiveNav("#nav", {
-	        customToggle: "#nav-toggle"
-	    });
+			customToggle : "#nav-toggle"
+		});
 	</script>
 </header>
 </html>

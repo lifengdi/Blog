@@ -3,11 +3,9 @@
 	padding: 0px;
 	font-family: Consolas, Times New Roman;
 }
-
 #header {
 	_background: #3d658d;
 	background: #3d658d;
-	_padding: 0px 4%;
 	position: fixed;
 	top: 0;
 	z-index: 999;
@@ -16,16 +14,17 @@
 	-ms-text-size-adjust: 100%;
 	text-size-adjust: 100%;
 	font: normal 100%/1.4 sans-serif;
+	float: left;
+	width: 100%;
+	height: 60px;
 }
 
 .nav-brand {
 	float: left;
-	padding: 10px 0;
-	_padding: 10px 0px;
 	line-height: 60px;
 	color: #FFF;
-	margin-left: 4%;
-	width: 20%;
+	margin-left: 4em;
+	height: 60px;
 }
 
 .nav-brand a {
@@ -73,3 +72,4 @@
 	background-position: 0 -62px;
 	outline: none;
 }
+
