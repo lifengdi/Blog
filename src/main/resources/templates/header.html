@@ -14,22 +14,24 @@
 			<a href="/index.html"> 博客系统 </a>
 		</div>
 		<div id="nav">
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Projects</a></li>
-				<li><a href="#">Contact</a></li>
-				<li><a href="#">Contact</a></li>
-				<li><a href="#">Contact</a></li>
-				<li><a href="#">Contact</a></li>
-			</ul>
+			<nav class="nav-collapse">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Projects</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</nav>
 		</div>
-		<button id="nav-toggle">Menu</button>
 	</div>
-	<script type="text/javascript">
-		var navigation = responsiveNav("#nav", {
-			customToggle : "#nav-toggle"
-		});
-	</script>
+	<script>
+      var navigation = responsiveNav(".nav-collapse", {
+        animate: true,                    
+        transition: 284
+      });
+    </script>
 </header>
 </html>
