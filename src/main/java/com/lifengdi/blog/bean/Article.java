@@ -1,111 +1,125 @@
 package com.lifengdi.blog.bean;
 
-import java.io.Serializable;
+import java.util.Date;
 
-/**
- * 
- * All rights Reserved, Designed By www.lifengdi.com
- * 
- * @ClassName Article
- * @Description 文章表
- * @author 李锋镝
- * @date 2017年11月18日 下午11:18:24
- * @version v1.0.0
- * @Copyright 2017 www.lifengdi.com All rights reserved.
- */
-public class Article extends BaseBean implements Serializable {
+public class Article {
+    private Integer id;
 
-	private static final long serialVersionUID = 2082967397876835108L;
-	
-	private String title;
-	private String intro;
-	private String content;
-	private String keyword;
-	private int type;
-	private int viewCount;
-	private int tagIds;
-	private String shortUrl;
-	private int ownerId;
-	private int sort;
+    private String title;
 
-	public String getTitle() {
-		return title;
-	}
+    private String keyword;
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    private Integer type;
 
-	public String getIntro() {
-		return intro;
-	}
+    private Integer status;
 
-	public void setIntro(String intro) {
-		this.intro = intro;
-	}
+    private Integer viewcount;
 
-	public String getContent() {
-		return content;
-	}
+    private String tagids;
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    private String shorturl;
 
-	public String getKeyword() {
-		return keyword;
-	}
+    private Integer ownerid;
 
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-	}
+    private Integer sort;
 
-	public int getType() {
-		return type;
-	}
+    private Date createtime;
 
-	public void setType(int type) {
-		this.type = type;
-	}
+    private Date modifytime;
 
-	public int getViewCount() {
-		return viewCount;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setViewCount(int viewCount) {
-		this.viewCount = viewCount;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public int getTagIds() {
-		return tagIds;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setTagIds(int tagIds) {
-		this.tagIds = tagIds;
-	}
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
+    }
 
-	public String getShortUrl() {
-		return shortUrl;
-	}
+    public String getKeyword() {
+        return keyword;
+    }
 
-	public void setShortUrl(String shortUrl) {
-		this.shortUrl = shortUrl;
-	}
+    public void setKeyword(String keyword) {
+        this.keyword = keyword == null ? null : keyword.trim();
+    }
 
-	public int getOwnerId() {
-		return ownerId;
-	}
+    public Integer getType() {
+        return type;
+    }
 
-	public void setOwnerId(int ownerId) {
-		this.ownerId = ownerId;
-	}
+    public void setType(Integer type) {
+        this.type = type;
+    }
 
-	public int getSort() {
-		return sort;
-	}
+    public Integer getStatus() {
+        return status;
+    }
 
-	public void setSort(int sort) {
-		this.sort = sort;
-	}
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
+    public Integer getViewcount() {
+        return viewcount;
+    }
+
+    public void setViewcount(Integer viewcount) {
+        this.viewcount = viewcount;
+    }
+
+    public String getTagids() {
+        return tagids;
+    }
+
+    public void setTagids(String tagids) {
+        this.tagids = tagids == null ? null : tagids.trim();
+    }
+
+    public String getShorturl() {
+        return shorturl;
+    }
+
+    public void setShorturl(String shorturl) {
+        this.shorturl = shorturl == null ? null : shorturl.trim();
+    }
+
+    public Integer getOwnerid() {
+        return ownerid;
+    }
+
+    public void setOwnerid(Integer ownerid) {
+        this.ownerid = ownerid;
+    }
+
+    public Integer getSort() {
+        return sort;
+    }
+
+    public void setSort(Integer sort) {
+        this.sort = sort;
+    }
+
+    public Date getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
+    }
+
+    public Date getModifytime() {
+        return modifytime;
+    }
+
+    public void setModifytime(Date modifytime) {
+        this.modifytime = modifytime;
+    }
 }

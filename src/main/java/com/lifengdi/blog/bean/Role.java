@@ -2,18 +2,12 @@ package com.lifengdi.blog.bean;
 
 import java.util.Date;
 
-public class Menu {
+public class Role {
     private Integer id;
 
     private String name;
 
-    private String url;
-
-    private Integer sort;
-
-    private Integer level;
-
-    private Integer parentid;
+    private Integer type;
 
     private Integer status;
 
@@ -37,36 +31,12 @@ public class Menu {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getUrl() {
-        return url;
+    public Integer getType() {
+        return type;
     }
 
-    public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
-    }
-
-    public Integer getSort() {
-        return sort;
-    }
-
-    public void setSort(Integer sort) {
-        this.sort = sort;
-    }
-
-    public Integer getLevel() {
-        return level;
-    }
-
-    public void setLevel(Integer level) {
-        this.level = level;
-    }
-
-    public Integer getParentid() {
-        return parentid;
-    }
-
-    public void setParentid(Integer parentid) {
-        this.parentid = parentid;
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     public Integer getStatus() {

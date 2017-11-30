@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lifengdi.blog.bean.City;
+import com.lifengdi.blog.bean.User;
+import com.lifengdi.blog.bean.UserKey;
 import com.lifengdi.blog.mybatis.mapper.CityMapper;
+import com.lifengdi.blog.mybatis.mapper.UserMapper;
 
 /**
  * 
@@ -20,7 +23,7 @@ import com.lifengdi.blog.mybatis.mapper.CityMapper;
 public class TestController {
 	
 	@Resource  
-    private CityMapper cityMapper;
+    private UserMapper userMapper;
 	
 	@RequestMapping("/asd")
 	String hello() {
@@ -44,9 +47,10 @@ public class TestController {
 	@RequestMapping("/findCity")  
 	ModelAndView findCity2(@RequestParam int id){  
 		System.out.println("33333444");
-		City selectCityById = cityMapper.selectCityById(id);
+		
+		User user = userMapper.selectById(id);
 		ModelAndView modelAndView = new ModelAndView("/index");
-		modelAndView.addObject("city", selectCityById);
+		modelAndView.addObject("city", user);
         return modelAndView;  
     }
 }

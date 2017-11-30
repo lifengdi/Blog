@@ -2,18 +2,12 @@ package com.lifengdi.blog.bean;
 
 import java.util.Date;
 
-public class Menu {
-    private Integer id;
-
+public class SysArguments extends SysArgumentsKey {
     private String name;
 
-    private String url;
+    private String desc;
 
-    private Integer sort;
-
-    private Integer level;
-
-    private Integer parentid;
+    private Integer createuserid;
 
     private Integer status;
 
@@ -21,13 +15,7 @@ public class Menu {
 
     private Date modifytime;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private String argValue;
 
     public String getName() {
         return name;
@@ -37,36 +25,20 @@ public class Menu {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getUrl() {
-        return url;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
+    public void setDesc(String desc) {
+        this.desc = desc == null ? null : desc.trim();
     }
 
-    public Integer getSort() {
-        return sort;
+    public Integer getCreateuserid() {
+        return createuserid;
     }
 
-    public void setSort(Integer sort) {
-        this.sort = sort;
-    }
-
-    public Integer getLevel() {
-        return level;
-    }
-
-    public void setLevel(Integer level) {
-        this.level = level;
-    }
-
-    public Integer getParentid() {
-        return parentid;
-    }
-
-    public void setParentid(Integer parentid) {
-        this.parentid = parentid;
+    public void setCreateuserid(Integer createuserid) {
+        this.createuserid = createuserid;
     }
 
     public Integer getStatus() {
@@ -91,5 +63,13 @@ public class Menu {
 
     public void setModifytime(Date modifytime) {
         this.modifytime = modifytime;
+    }
+
+    public String getArgValue() {
+        return argValue;
+    }
+
+    public void setArgValue(String argValue) {
+        this.argValue = argValue == null ? null : argValue.trim();
     }
 }
