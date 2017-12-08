@@ -31,11 +31,11 @@ public class TestController {
 		return "/login";
 	}
 	
-	@RequestMapping("/index")
+	@RequestMapping("/admin/index")
 	String index(HttpServletRequest request) {
 		System.out.println(request.getHeader("User-Agent"));
 		System.out.println("11111");
-		return "index";
+		return "/admin/index";
 	}
 	
 	@RequestMapping("/")
