@@ -32,10 +32,13 @@ public class TestController {
 	}
 	
 	@RequestMapping("/admin/index")
-	String index(HttpServletRequest request) {
+	ModelAndView index(HttpServletRequest request) {
 		System.out.println(request.getHeader("User-Agent"));
 		System.out.println("11111");
-		return "/admin/index";
+		ModelAndView modelAndView = new ModelAndView("/admin/index");
+		modelAndView.addObject("obj", "><$Thanks & Regards");
+        return modelAndView;
+		
 	}
 	
 	@RequestMapping("/")
