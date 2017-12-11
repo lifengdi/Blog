@@ -56,5 +56,18 @@ public class TestController {
 		modelAndView.addObject("city", user);
         return modelAndView;  
     }
+	
+	public static void main(String[] args) {
+		int index = 87;
+		StringBuffer sb = new StringBuffer();
+		for (int i = 1; i <= index; i++) {
+			if (sb.length() > 0) {
+				sb.append(",'").append(i).append("'");
+			} else {
+				sb.append("'").append(i).append("'");
+			}
+		}
+		System.out.println(sb);
+	}
 }
 

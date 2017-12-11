@@ -81,36 +81,40 @@ function autoHeight( index ) {
             parent = iframe.parentNode.parentNode;
     switch ( index ) {
         case 0:
-            iframe.style.height = "380px";
-            parent.style.height = "392px";
+            iframe.style.height = "480px";
+            parent.style.height = "492px";
             break;
         case 1:
-            iframe.style.height = "220px";
-            parent.style.height = "232px";
+            iframe.style.height = "270px";
+            parent.style.height = "282px";
             break;
         case 2:
-            iframe.style.height = "260px";
-            parent.style.height = "272px";
+            iframe.style.height = "350px";
+            parent.style.height = "362px";
             break;
         case 3:
+            iframe.style.height = "390px";
+            parent.style.height = "402px";
+            break;
+        case 4:
+            iframe.style.height = "200px";
+            parent.style.height = "212px";
+            break;
+        case 5:
+            iframe.style.height = "350px";
+            parent.style.height = "362px";
+            break;
+        case 6:
             iframe.style.height = "300px";
             parent.style.height = "312px";
             break;
-        case 4:
-            iframe.style.height = "140px";
-            parent.style.height = "152px";
-            break;
-        case 5:
-            iframe.style.height = "260px";
-            parent.style.height = "272px";
-            break;
-        case 6:
-            iframe.style.height = "230px";
-            parent.style.height = "242px";
-            break;
         case 7:
-        	iframe.style.height = "260px";
-            parent.style.height = "272px";
+        	iframe.style.height = "460px";
+            parent.style.height = "472px";
+            break;
+        case 8:
+        	iframe.style.height = "660px";
+            parent.style.height = "672px";
             break;
         default:
 
@@ -128,7 +132,7 @@ function createTab( tabName ) {
             tableCss = emotion.imageCss[tabName],
             cssOffset = emotion.imageCssOffset[tabName],
             textHTML = ['<table class="smileytable">'],
-            i = 0, imgNum = emotion.SmileyBox[tabName].length, imgColNum = 11, faceImage,
+            i = 0, imgNum = emotion.SmileyBox[tabName].length, imgColNum = 8, faceImage,
             sUrl, realUrl, posflag, offset, infor;
 
     for ( ; i < imgNum; ) {
