@@ -8451,6 +8451,7 @@ star {
   }
   .card form [class*="col-"]:last-child {
     padding-right: 15px;
+    padding-left: 15px;
   }
 
   .table-full-width {

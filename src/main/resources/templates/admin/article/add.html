@@ -5,14 +5,128 @@
 <title>发布</title>
 </head>
 <body>
-<div th:include="/admin/layout :: wrapper"></div>
-<div class="main-panel">
-	<div class="content">
-	123
-	1231
-	1231231
-	qerqwe
-	</div>
+	<div th:include="/admin/layout :: wrapper"></div>
+	<div class="main-panel">
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+							<form id="allInputsFormValidation" class="form-horizontal"
+								action="" method="post" novalidate="">
+								<div class="content">
+
+									<legend th:utext="${msg}"></legend>
+
+									<fieldset>
+										<div class="form-group">
+											<div class="col-sm-12">
+												<label class="control-label">标题:</label>
+											</div>
+											<div class="col-sm-12">
+												<input class="form-control" required="required" type="text" name="title" minLength="2" />
+											</div>
+										</div>
+									</fieldset>
+									
+									<fieldset>
+										<div class="form-group">
+											<div class="col-sm-12">
+												<label class="control-label">正文:</label>
+											</div>
+											<div class="col-sm-12">
+												<div th:include="/admin/baiduUE :: ue"></div>
+											</div>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<div class="col-sm-12">
+												<label class="control-label">内容摘要:</label>
+											</div>
+											<div class="col-sm-12">
+												<div th:include="/admin/baiduUE2 :: ue2"></div>
+											</div>
+										</div>
+									</fieldset>
+									<fieldset>
+                                        <div class="form-group">
+                                        	<div class="col-sm-12">
+												<label class="control-label">选择标签(<a href="javascript:;" onclick="showSwal()">新建</a>):</label>
+											</div>
+                                           <div class="col-sm-12" id="articleTags">
+                                                <label class="checkbox checkbox-inline">
+                                                    <input type="checkbox" data-toggle="checkbox" value="1"/>Java
+                                                </label>
+
+                                                <label class="checkbox checkbox-inline">
+                                                    <input type="checkbox" data-toggle="checkbox" value="2"/>JS
+                                                </label>
+
+                                                <label class="checkbox checkbox-inline">
+                                                    <input type="checkbox" data-toggle="checkbox" value="3"/>SQL
+                                                </label>
+                                           </div>
+                                        </div>
+                                    </fieldset>
+								</div>
+								<div class="footer text-center">
+									<button type="submit" class="btn btn-info btn-fill">保存</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
+	<script type="text/javascript">
+        $().ready(function(){
+
+            $('#allInputsFormValidation').validate();
+
+        });
+        function showSwal() {
+        	swal({
+                title: '新建标签',
+                html: '<p><input id="tagName" class="form-control" placeholder="请输入名称"/></p><br/><p><input id="tagIntro" class="form-control" placeholder="请输入介绍"/></p>',
+                showCancelButton: true,
+                closeOnConfirm: false,
+                allowOutsideClick: false
+              },
+              function() {
+            	  alert($('#articleTags').html());
+                swal({
+                  html:
+                    'You entered: <strong>' +
+                    $('#input-field').val() +
+                    '</strong>'
+                });
+              })
+        }
+        function initTags() {
+        	$.ajax({
+                type: 'POST',
+                url: "/tag/list",
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(data),
+                dataType: 'json'
+            }).done(function (d) {
+                if (d && d.ok) {
+                    if (customerTable) {
+                        customerTable.ajax.reload();
+                    }
+                    $("#customer_edit_model").modal('hide');
+                    toastr.success('客户编辑成功!');
+                } else {
+                    toastr.error(d.error.message);
+                }
+            }).fail(function (jqxhr, textStatus, error) {
+                toastr.error('客户编辑失败!<br/>[' + error + ']');
+            }).always(function () {
+                $("#btnCustomerEdit").removeAttr("disabled");
+            });
+        }
+    </script>
 </html>
