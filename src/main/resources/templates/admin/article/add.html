@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
+<meta name="context-path" th:content="@{/}"/>
 <title>发布</title>
 </head>
 <body>
@@ -81,7 +82,7 @@
 		</div>
 	</div>
 </body>
-	<script type="text/javascript">
+	<script type="text/javascript" th:inline="javascript">
         $().ready(function(){
 
             $('#allInputsFormValidation').validate();
@@ -96,37 +97,39 @@
                 allowOutsideClick: false
               },
               function() {
-            	  alert($('#articleTags').html());
-                swal({
-                  html:
-                    'You entered: <strong>' +
-                    $('#input-field').val() +
-                    '</strong>'
-                });
+            	  /* alert($('#articleTags').html()); */
+            	  initTags();
+	                swal({
+	                  html:
+	                    'You entered: <strong>' +
+	                    $('#input-field').val() +
+	                    '</strong>'
+	                });
               })
         }
+        var BASE_CONTEXT_PATH = $('meta[name=context-path]').attr("content");
+        /*<![CDATA[*/
         function initTags() {
+        	alert(BASE_CONTEXT_PATH);
         	$.ajax({
-                type: 'POST',
-                url: "/tag/list",
+    			type: 'GET',
+                url: '/admin/tag/list',
                 contentType: 'application/json; charset=utf-8',
-                data: JSON.stringify(data),
-                dataType: 'json'
-            }).done(function (d) {
-                if (d && d.ok) {
-                    if (customerTable) {
-                        customerTable.ajax.reload();
-                    }
-                    $("#customer_edit_model").modal('hide');
-                    toastr.success('客户编辑成功!');
-                } else {
-                    toastr.error(d.error.message);
-                }
-            }).fail(function (jqxhr, textStatus, error) {
-                toastr.error('客户编辑失败!<br/>[' + error + ']');
-            }).always(function () {
-                $("#btnCustomerEdit").removeAttr("disabled");
-            });
+                data: {'id':1},
+                dataType: 'json',
+   				success:function(result){
+   					var selecthtml = new Array();
+   					for (var i = 0; i < result.tags.length; i++) {
+   						alert(result.tags[i]);
+   						var tag = result.tags[i];
+   						selecthtml.push("<label class='checkbox checkbox-inline'> " +
+   								'<span class="icons"><span class="first-icon fa fa-square-o"></span><span class="second-icon fa fa-check-square-o"></span></span>'
+   								+ " <input type='checkbox' data-toggle='checkbox' value='" + tag.id + "'/>" + tag.name + "</label>"); 
+   					}
+   					$("#articleTags").empty().html(selecthtml);
+    			}
+    		});
         }
+        /*]]>*/
     </script>
 </html>
