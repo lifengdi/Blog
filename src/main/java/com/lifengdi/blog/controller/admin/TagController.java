@@ -30,10 +30,10 @@ public class TagController {
 	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	@ResponseBody
-	Object list(HttpServletRequest request, HttpServletResponse response, @RequestParam int id) {
-		System.out.println(id);
+	Object list(HttpServletRequest request, HttpServletResponse response, @RequestParam int type) {
+		System.out.println(type);
 		JSONObject jsonObject = new JSONObject();
-		List<Tag> tags = tagService.selectByType(TAG_TYPE);
+		List<Tag> tags = tagService.selectByType(type);
 		JSONArray jsonArray = new JSONArray();
 		if (!CollectionUtils.isEmpty(tags)) {
 			for (Tag tag : tags) {
@@ -42,6 +42,12 @@ public class TagController {
 		}
 		jsonObject.put("tags", jsonArray);
 		return jsonObject;
+	}
+	
+	@RequestMapping(value="/save", method=RequestMethod.GET)
+	@ResponseBody
+	Object save(HttpServletRequest request, HttpServletResponse response, Tag tag) {
+		return null;
 	}
 
 }

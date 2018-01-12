@@ -25,7 +25,9 @@ public class TagService {
 	public List<Tag> selectByType(int type) {
 		try {
 			TagExample tagExample = new TagExample();
-			tagExample.createCriteria().andTypeEqualTo(type);
+			if (type >= 0) {
+				tagExample.createCriteria().andTypeEqualTo(type);
+			}
 			return tagMapper.selectByExample(tagExample);
 		} catch (Exception e) {
 			
