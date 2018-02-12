@@ -30,7 +30,7 @@ public class TagService {
 			}
 			return tagMapper.selectByExample(tagExample);
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 		
 		return null;
