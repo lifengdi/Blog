@@ -91,7 +91,7 @@
         function showSwal() {
         	swal({
                 title: '新增标签',
-                html: '<p><input id="tagName" class="form-control" placeholder="请输入名称"/></p><br/><p><input id="tagIntro" class="form-control" placeholder="请输入介绍"/></p>',
+                html: '<p><input id="addTagName" class="form-control" placeholder="请输入名称"/></p><br/><p><input id="addTagIntro" class="form-control" placeholder="请输入介绍"/></p>',
                 showCancelButton: true,
                 closeOnConfirm: false,
                 allowOutsideClick: false,
@@ -104,7 +104,7 @@
 	                swal({
 	                  html:
 	                    '新增标签: <strong>' +
-	                    $('#input-field').val() +
+	                    $('#addTagName').val() +
 	                    '</strong>成功'
 	                });
               })

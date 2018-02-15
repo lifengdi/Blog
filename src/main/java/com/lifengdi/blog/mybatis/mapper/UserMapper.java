@@ -32,4 +32,7 @@ public interface UserMapper {
     
     @Select("SELECT * FROM T_USER WHERE id = #{id}")
     User selectById(Integer id);
+    
+    @Select("SELECT * FROM T_USER WHERE loginId = #{loginId}")
+    User selectByLoginId(String loginId);
 }
