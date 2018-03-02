@@ -35,4 +35,26 @@ public class TagService {
 		
 		return null;
 	}
+	
+	/**
+	 * 插入数据
+	 * @author LiFengdi
+	 * @date 2018年3月2日 下午5:31:13
+	 * @param record
+	 * @return
+	 */
+	public int insert(Tag record) {
+		return tagMapper.insert(record);
+	}
+	
+	/**
+	 * 更新数据
+	 * @author LiFengdi
+	 * @date 2018年3月2日 下午5:32:22
+	 * @param record
+	 * @return
+	 */
+	public int update(Tag record) {
+		return tagMapper.updateByPrimaryKey(record);
+	}
 }

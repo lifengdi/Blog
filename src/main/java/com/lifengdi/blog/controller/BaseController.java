@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.lifengdi.blog.bean.User;
+import com.lifengdi.blog.common.HttpStatusCodeEnum;
+import com.lifengdi.blog.util.ResponseHelper;
 
 @Controller
 public class BaseController {
@@ -16,9 +18,9 @@ public class BaseController {
 	public static final String SESSION_ADMIN_USER_INFO = "adminUserInfo";
 	public static final String SESSION_ADMIN_USER_MENU = "adminUserMenu";
 
-	Object success() {
+	Object success(Object data) {
 		
-		return null;
+		return ResponseHelper.getResponseJson(HttpStatusCodeEnum.SUCCESS.getCode(), null, data);
 	}
 	
 	/**
