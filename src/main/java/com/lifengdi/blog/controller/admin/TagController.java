@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -18,6 +17,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.lifengdi.blog.bean.Tag;
 import com.lifengdi.blog.common.StatueEnum;
+import com.lifengdi.blog.controller.BaseController;
 import com.lifengdi.blog.services.TagService;
 import com.lifengdi.blog.util.DateTimeUtil;
 
@@ -28,18 +28,13 @@ import com.lifengdi.blog.util.DateTimeUtil;
  */
 @Controller
 @RequestMapping("/admin/tag")
-public class TagController {
+public class TagController extends BaseController{
 	
 	@Autowired
 	private TagService tagService;
 	
-	/**
-	 * 0-文章标签，1-技术类网站链接，2-其他类网站
-	 */
-	private static final int TAG_TYPE = 0;
-	
-	@RequestMapping(value="/list", method=RequestMethod.GET)
 	@ResponseBody
+	@RequestMapping(value="/list")
 	Object list(HttpServletRequest request, HttpServletResponse response, @RequestParam int type) {
 		if (type < 0) {
 			type = 0;
@@ -53,11 +48,18 @@ public class TagController {
 			}
 		}
 		jsonObject.put("tags", jsonArray);
-		return jsonObject;
+		return success(jsonObject);
 	}
 	
-	@RequestMapping(value="/save", method=RequestMethod.GET)
 	@ResponseBody
+	@RequestMapping(value="/add")
+	Object add(HttpServletRequest request, HttpServletResponse response) {
+		
+		return null;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/save")
 	Object save(HttpServletRequest request, HttpServletResponse response, Tag tag) {
 		int result = -1;
 		if (tag.getName() == null || tag.getType() == null) {
@@ -67,13 +69,15 @@ public class TagController {
 			tag.setStatus(StatueEnum.VALID.getValue());
 		}
 		if (tag.getId() == null) {
+			// 新增
 			tag.setCreatetime(DateTimeUtil.getNow());
 			result = tagService.insert(tag);
 		} else {
+			// 修改
 			tag.setModifytime(DateTimeUtil.getNow());
 			result = tagService.update(tag);
 		}
-		return result;
+		return success(result);
 	}
 
 }

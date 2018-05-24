@@ -27,15 +27,15 @@ public class ResponseHelper {
 	 *            响应的实际数据JSON对象
 	 * @return 封装好的JSON字符串
 	 */
-	public static String getResponseJson(Integer stateCode, String message, JSONObject data) {
+	public static String getResponseJson(Integer stateCode, String message, JSONObject result) {
 		JSONObject json = new JSONObject();
 		try {
 			json.put("stateCode", stateCode);
 			if (!StringUtil.isEmpty(message)) {
 				json.put("message", message);
 			}
-			if (!data.isEmpty()) {
-				json.put("data", data);
+			if (!result.isEmpty()) {
+				json.put("result", result);
 			}
 
 		} catch (JSONException e) {
@@ -55,15 +55,15 @@ public class ResponseHelper {
 	 *            响应的实际数据JSON字符串对象
 	 * @return 封装好的JSON字符串
 	 */
-	public static String getResponseJson(Integer stateCode, String message, Object data) {
+	public static String getResponseJson(Integer stateCode, String message, Object result) {
 		Map<String, Object> jsonMap = new HashMap<String, Object>();
 		try {
 			jsonMap.put("stateCode", stateCode);
 			if (!StringUtil.isEmpty(message)) {
 				jsonMap.put("message", message);
 			}
-			if (data != null) {
-				jsonMap.put("data", data);
+			if (result != null) {
+				jsonMap.put("result", result);
 			}
 
 		} catch (Exception e) {

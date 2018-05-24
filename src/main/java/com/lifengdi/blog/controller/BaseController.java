@@ -18,11 +18,45 @@ public class BaseController {
 	public static final String SESSION_ADMIN_USER_INFO = "adminUserInfo";
 	public static final String SESSION_ADMIN_USER_MENU = "adminUserMenu";
 
-	Object success(Object data) {
-		
+	public Object success() {
+		return ResponseHelper.getResponseJson(HttpStatusCodeEnum.SUCCESS.getCode(), null, null);
+	}
+	public Object success(Object data) {
 		return ResponseHelper.getResponseJson(HttpStatusCodeEnum.SUCCESS.getCode(), null, data);
 	}
 	
+	public Object success(Object data, String message) {
+		return ResponseHelper.getResponseJson(HttpStatusCodeEnum.SUCCESS.getCode(), message, data);
+	}
+	
+	public Object success(int httpStatusCode, Object data, String message) {
+		return ResponseHelper.getResponseJson(httpStatusCode, message, data);
+	}
+	
+	public Object success(HttpStatusCodeEnum httpStatus, Object data, String message) {
+		return ResponseHelper.getResponseJson(httpStatus.getCode(), message, data);
+	}
+	
+	public Object fail() {
+		return ResponseHelper.getResponseJson(HttpStatusCodeEnum.FAIL.getCode(), null, null);
+	}
+
+	
+	public Object fail(Object data) {
+		return ResponseHelper.getResponseJson(HttpStatusCodeEnum.FAIL.getCode(), null, data);
+	}
+
+	public Object fail(Object data, String message) {
+		return ResponseHelper.getResponseJson(HttpStatusCodeEnum.FAIL.getCode(), message, data);
+	}
+	
+	public Object fail(int httpStatusCode, Object data, String message) {
+		return ResponseHelper.getResponseJson(httpStatusCode, message, data);
+	}
+	
+	public Object fail(HttpStatusCodeEnum httpStatus, Object data, String message) {
+		return ResponseHelper.getResponseJson(httpStatus.getCode(), message, data);
+	}
 	/**
 	 * 获取当前登录用户
 	 * @Title 	getCurrentUser   

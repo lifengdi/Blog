@@ -9,7 +9,8 @@ public enum HttpStatusCodeEnum {
 	SUCCESS(0, "成功")
 	, SERVER_EXCEPTION(100, "服务器异常")
 	, PARAM_ERROR(200, "传入参数不正确（缺少参数，值的类型或格式错误等）")
-	, USER_INFO_ERROR(300, "用户信息认证失败");
+	, USER_INFO_ERROR(300, "用户信息认证失败")
+	, FAIL(400, "失败");
 	
 	private HttpStatusCodeEnum(int code, String desc) {
 		this.code = code;

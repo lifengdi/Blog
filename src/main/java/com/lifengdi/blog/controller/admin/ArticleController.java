@@ -11,6 +11,7 @@ import com.lifengdi.blog.bean.ArticleWithBLOBs;
 import com.lifengdi.blog.bean.User;
 import com.lifengdi.blog.controller.BaseController;
 import com.lifengdi.blog.mybatis.mapper.ArticleMapper;
+import com.lifengdi.blog.page.resource.PageResourceAdmin;
 import com.lifengdi.blog.util.StringUtil;
 import com.lifengdi.blog.util.SubStringHtmlUtil;
 
@@ -18,21 +19,40 @@ import com.lifengdi.blog.util.SubStringHtmlUtil;
 @RequestMapping("/admin/article")
 public class ArticleController extends BaseController{
 	
+	private static final String TITLE_ADD = "文章发布";
+	private static final String TITLE_EDIT = "文章修改";
+	
 	@Autowired
 	private ArticleMapper articleMapper;
 
 	@RequestMapping("/add")
 	ModelAndView add(HttpServletRequest request) {
-		System.out.println(getCurrentUser().getName());
-		ModelAndView modelAndView = new ModelAndView("/admin/article/add");
-		modelAndView.addObject("title", "文章发布");
+		ModelAndView modelAndView = new ModelAndView(PageResourceAdmin.ARTICLE_ADD);
+		modelAndView.addObject("title", TITLE_ADD);
+        return modelAndView;
+		
+	}
+	
+	@RequestMapping("/update")
+	ModelAndView update(HttpServletRequest request, int articleId) {
+		ModelAndView modelAndView = new ModelAndView(PageResourceAdmin.ARTICLE_ADD);
+		String title = TITLE_EDIT;
+		if (articleId <= 0) {
+			title = TITLE_ADD;
+			modelAndView.addObject("title", title);
+			return modelAndView;
+		}
+		
+		ArticleWithBLOBs articleWithBLOBs = articleMapper.selectByPrimaryKey(articleId);
+		
+		modelAndView.addObject("title", title);
+		modelAndView.addObject("articleInfo", articleWithBLOBs);
         return modelAndView;
 		
 	}
 	
 	@RequestMapping("/save")
 	Object save(ArticleWithBLOBs article) {
-		ModelAndView modelAndView = new ModelAndView("/admin/article/add");
 		if (article == null) {
 			return null;
 		}
@@ -47,7 +67,12 @@ public class ArticleController extends BaseController{
 			article.setOwnerid(user.getId());
 			rs = articleMapper.insert(article);
 		}
-        return modelAndView;
+		
+		if (rs > 0) {
+			return success();
+		} else {
+			return fail();
+		}
 		
 	}
 }
